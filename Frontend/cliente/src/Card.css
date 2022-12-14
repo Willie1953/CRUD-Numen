@@ -1,0 +1,22 @@
+.card{
+    display: inline-block;
+    margin: 5px;
+    height: 400px;
+    width: 350px;
+    overflow: hidden;
+    box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
+    border-radius: 1em;
+    background: #ECE9E6;
+    background: linear-gradient(to right, #FFFFFF, #ECE9E6);
+}
+
+img{
+    display: inline;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 5px 5px 0 0;
+    
+}
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }

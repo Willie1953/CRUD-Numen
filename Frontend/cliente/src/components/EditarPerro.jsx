@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
@@ -12,7 +12,7 @@ function EditarPerro(){
     const [raza,setRaza] = useState('');
     const [peso,setPeso] = useState('');
     const [temperamento,setTemperamento] =useState('');
-
+    const navegar = useNavigate()
     useEffect(()=>{
         
        axios.patch('http://localhost:5050/update/' + params.id).then(res=>{
@@ -36,6 +36,7 @@ function EditarPerro(){
         axios.patch('http://localhost:5050/update/' + params.id,perroUpdate).then(res=>{
             console.log(res.data)
             alert('Perro actualizado con éxito!')
+            navegar("/")
         })
     }
 

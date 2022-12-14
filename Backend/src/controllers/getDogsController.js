@@ -1,6 +1,6 @@
 const axios = require("axios");
 const Dogs = require('../models/Dogs');
-
+//Para traer perros de la API
 exports.get = async (_, res) => {
   try {
     const getAllDogs = (
@@ -21,7 +21,7 @@ exports.get = async (_, res) => {
     res.status(500).send(error);
   }
 };
-
+//Para traer perros de la DB
 exports.getDB= async(_,res)=>{
   try {
     const dbDogs= await Dogs.find() 
