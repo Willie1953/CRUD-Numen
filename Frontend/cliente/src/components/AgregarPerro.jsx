@@ -9,13 +9,15 @@ function AgregarPerro(){
     const [raza,setRaza] = useState('');
     const [peso,setPeso] = useState('');
     const [temperamento,setTemperamento] =useState('');
+    const [imagen, setImagen]=useState('');
 
     function agregarPerro(){
         const newDog = {
             name:nombre,
             breed:raza,
             temperament:temperamento,
-            weigth:peso
+            weight:peso,
+            image:imagen
         }
         axios.post('http://localhost:5050/postear/', newDog)
         .then(res=> console.log(res.data))
@@ -49,6 +51,10 @@ function AgregarPerro(){
                     <div className="mb-3">
                         <label htmlFor="temperamento">Temperamento</label>
                         <input type="text" className="form-control" value={temperamento} onChange={(e)=>setTemperamento(e.target.value)}/>
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="Imagen">Imagen</label>
+                        <input type="text" className="form-control" value={imagen} onChange={(e)=>setImagen(e.target.value)}/>
                     </div>
 
                     <button onClick={agregarPerro} className="btn btn-success"> Agregar Perrito</button>
