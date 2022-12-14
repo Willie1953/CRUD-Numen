@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import axios from 'axios';
-
+import { useNavigate } from "react-router-dom";
 
 function AgregarPerro(){
     //Hooks
@@ -10,7 +10,7 @@ function AgregarPerro(){
     const [peso,setPeso] = useState('');
     const [temperamento,setTemperamento] =useState('');
     const [imagen, setImagen]=useState('');
-
+    const navegar = useNavigate()
     function agregarPerro(){
         const newDog = {
             name:nombre,
@@ -22,6 +22,8 @@ function AgregarPerro(){
         axios.post('http://localhost:5050/postear/', newDog)
         .then(res=> console.log(res.data))
         .then(err=>console.log(err))
+        alert('Perrito agregado a la DB')
+        navegar(0)
     }
 
     return(
